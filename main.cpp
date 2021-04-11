@@ -2,16 +2,15 @@
 #include <fstream>
 #include <stdexcept>
 #include "type.h"
-#include "aritmetica.h"
-#include "student.h"
 #include "stack.h"
 using namespace std;
 
+//Funciones
 int f1(int n1)
-{ return ++n1; }
+{ return ++n1; }//Retorna el valor de n1+1
 
 int f2(int &n2)
-{ return ++n2; }
+{ return ++n2; }//Cambia y retorna el valor de n2+1
 
 int main()
 {
@@ -20,25 +19,26 @@ int main()
   cout << "x=" << x << ", y=" << y << endl;
   x = 10; y = f2(x); 
   cout << "x=" << x << ", y=" << y << endl;
-  exit(0);
+  exit(0);//Código para terminar la ejecución.
 
   Stack<T1> s; //T1 para el stack s
   Stack<T2> t; //T2 para el stack t
   
-  try
+  try //Se intenta hacer un pop
   {
     auto valor = s.pop();
     cout << "Test " <<endl;
   }
-  catch( exception &exception )
+  catch( exception &exception ) //Se atrapa y muestra el valor
   {
-    cout << "Error: " << exception.what() << endl;
+    cout << "Error: " << exception.what() << endl;//Mensaje de error.
+    //exit(0); //Se acaba la ejecución.
   }
 
-  cout << "El programa sigue vivo ... " <<endl;
+  cout << "El programa sigue vivo ... " <<endl;//Confirmación de que el programa sigue corriendo
   s.push(7);
   T1 var = 6;
-  s.push(var);
+  s.push(var+8);
   s.push(var+8);
 
   t.push(3.5);
@@ -47,27 +47,11 @@ int main()
   t.push(60.8);
   t.push(11.23);
 
-  cout << "Punto 2 ... " <<endl;
-  s.flush_printing(cout);
+  cout << "Punto 2 ... " <<endl;//Siguiente parte del programa
+  s.flush_printing(cout);//Flush Printing del Stack s en consola
 
-  ofstream of("salida.txt");
-  t.flush_printing(of);
-
-  /*int a=9, b=5;
-  Aritmetica obj(a,b);
-  cout << "Hello World! ... " << a/b << endl;
-  cout << "Suma de: " << a << " y " << b << " es: " << obj.suma() << endl;
-  cout << "Resta de: " << a << " y " << b << " es: " << obj.resta() << endl;
-  cout << "Mult de: " << a << " y " << b << " es: " << obj.mult() << endl;
-  cout << "Division de: " << a << " y " << b << " es: " << obj.division() << endl;
-
-  Student s1("Estefano");
-
-  cout << "Nombre de alumno: " << s1.getName() <<endl;
-
-  s1.setName("Jessie");
-  cout << "Nombre de alumno: " << s1.getName() << endl;
-  */
+  ofstream of("salida.txt");//Archivo "salida.txt"
+  t.flush_printing(of);//Flush Printing del Stack t en el archivo "salida.txt"
 
    return 0;
 }
