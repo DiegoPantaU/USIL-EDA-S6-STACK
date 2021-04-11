@@ -2,6 +2,7 @@
 #define __STACK_H__
 
 #include <iostream>
+#include <fstream>
 #include <vector>
 using namespace std;
 
@@ -40,7 +41,7 @@ void Stack<T>::push(T &&elem)
 }
 
 template <typename T>
-T Stack<T>::pop()
+T Stack<T>::pop() 
 {
   if(m_top>0)
     return m_stack[--m_top];
@@ -50,13 +51,18 @@ T Stack<T>::pop()
 template <typename T>
 void Stack<T>::flush_printing(ostream &os)
 {
-  while( size() > 0) // Tiene elementos?
+  T ultvect= m_stack.size()-1;
+  T x=m_stack[ultvect];
+  ofstream Fileout;
+  Fileout.open("GuardadoPop.txt", ios::app);
+  Fileout << x <<endl;
+
+  while( size() > 0) // Tiene elementos?  
   {
     auto v = pop();
     os << v <<endl;
-  }
+  } 
 }
 
 #endif
-
-// Pendiente subir  
+// Pendiente subir
