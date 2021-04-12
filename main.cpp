@@ -5,22 +5,8 @@
 #include "stack.h"
 using namespace std;
 
-//Funciones
-int f1(int n1)
-{ return ++n1; }//Retorna el valor de n1+1
-
-int f2(int &n2)
-{ return ++n2; }//Cambia y retorna el valor de n2+1
-
 int main()
 {
-  int x = 10, y = f1(x); 
-  
-  cout << "x=" << x << ", y=" << y << endl;
-  x = 10; y = f2(x); 
-  cout << "x=" << x << ", y=" << y << endl;
-  exit(0);//Código para terminar la ejecución.
-
   Stack<T1> s; //T1 para el stack s
   Stack<T2> t; //T2 para el stack t
   
@@ -39,7 +25,7 @@ int main()
   s.push(7);
   T1 var = 6;
   s.push(var+8);
-  s.push(var+8);
+  s.push(move(var));
 
   t.push(3.5);
   t.push(50.2);

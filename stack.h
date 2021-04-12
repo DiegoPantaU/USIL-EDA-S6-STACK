@@ -53,7 +53,11 @@ void Stack<T>::flush_printing(ostream &os)
   while( size() > 0) // Tiene elementos?
   {
     auto v = pop();
+    ofstream Archivo;
+    Archivo.open("DatosE.txt");
+    Archivo << v <<endl;
     os << v <<endl;
+    Archivo.close();
   }
 }
 
