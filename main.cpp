@@ -32,7 +32,22 @@ int main()
   t.push(78.23);
   t.push(60.8);
   t.push(11.23);
+  
+  //Implementar y mostrar el push t
+  try //Se intenta hacer un pop
+  {
+    auto valor = t.pop();
+    cout << "Test " <<endl;
+  }
+  catch( exception &exception ) //Se atrapa y muestra el valor
+  {
+    cout << "Error: " << exception.what() << endl;//Mensaje de error.
+    //exit(0); //Se acaba la ejecución.
+  }
 
+  //Fin de la implementacion
+  
+  
   cout << "Punto 2 ... " <<endl;//Siguiente parte del programa
   s.flush_printing(cout);//Flush Printing del Stack s en consola
 
