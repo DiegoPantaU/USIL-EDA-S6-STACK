@@ -39,6 +39,6 @@ int main()
   ofstream of("salida.txt");
   t.flush_printing(of);
 
-   return 0;
+   //eliminar el return 0
 }
  
